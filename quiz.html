@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Quiz • Web Class</title>
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="script.js"></script>
+</head>
+<body class="quiz-page">
+  <header class="site-header">
+    <div class="wrap nav">
+      <a class="brand" href="index.html">
+        <img src="logo.svg" alt="" width="36" height="36" class="logo">
+        <span class="brand-text">Web Class</span>
+      </a>
+      <nav aria-label="Primary">
+        <a href="lessons.html">Lessons</a>
+        <a href="playground.html">Playground</a>
+        <a class="active" href="quiz.html">Quiz</a>
+        <a class="btn small" href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <h1>Quick Quiz</h1>
+    <div class="quiz">
+      <div class="q">
+    
+       <div class="score" id="scoreBox">Score: <span id="score">0</span> / 4</div>
+
+        <p><strong>Q1.</strong> Which tag creates a hyperlink?</p>
+        <div class="btn-row">
+          <button class="btn a" data-correct="true">&lt;a&gt;</button>
+          <button class="btn a">&lt;link&gt;</button>
+          <button class="btn a">&lt;url&gt;</button>
+        </div>
+        <p class="result" aria-live="polite"></p>
+      </div>
+      <div class="q">
+        <p><strong>Q2.</strong> Where do you put internal CSS for a page?</p>
+        <div class="btn-row">
+          <button class="btn a" data-correct="true">&lt;style&gt; inside &lt;head&gt;</button>
+          <button class="btn a">inline on every element</button>
+          <button class="btn a">in a &lt;script&gt; tag</button>
+        </div>
+        <p class="result" aria-live="polite"></p>
+      </div>
+      <div class="q">
+        <p><strong>Q3.</strong> In JavaScript, <code>===</code> checks …</p>
+        <div class="btn-row">
+          <button class="btn a">value only</button>
+          <button class="btn a" data-correct="true">value and type</button>
+          <button class="btn a">just type</button>
+        </div>
+        <p class="result" aria-live="polite"></p>
+      </div>
+        
+     <div class="q">
+       <p><strong>Q4.</strong> Inside which HTML element do we put JavaScript code?</p>
+          <div class="btn-row">
+          <button class="btn a">&lt;java&gt;</button>
+          <button class="btn a" data-correct="true">&lt;script&gt;</button>
+          <button class="btn a">&lt;scripting&gt;</button>
+        </div>
+        <p class="result" aria-live="polite"></p>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p><a class="btn" href="index.html"> Back to Home</a></p>
+    </div>
+  </footer>
+
+ <script>
+    let score = 0;
+    const scoreEl = document.getElementById("score");
+    const scoreBox = document.getElementById("scoreBox");
+
+    document.querySelectorAll('.q').forEach(q => {
+      let answered = false; // prevent double scoring
+      q.querySelectorAll('.a').forEach(b => {
+        b.addEventListener('click', () => {
+          const correct = b.dataset.correct !== undefined;
+          const res = q.querySelector('.result');
+
+          // Move score bar above the current question
+          q.prepend(scoreBox);
+
+          if (!answered) {
+            if (correct) {
+              score++;
+              scoreEl.textContent = score;
+              res.textContent = 'Correct ✅';
+              res.style.color = 'limegreen';
+              answered = true;
+            } else {
+              res.textContent = 'Try again ❌';
+              res.style.color = 'red';
+            }
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>

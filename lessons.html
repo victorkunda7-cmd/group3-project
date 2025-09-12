@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Lessons • Web Class</title>
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="script.js"></script>
+</head>
+<body class="lesson-page">
+  <header class="site-header">
+    <div class="wrap nav">
+      <a class="brand" href="index.html">
+        <img src="logo.svg" alt="" width="36" height="36" class="logo">
+        <span class="brand-text">Web Class</span>
+      </a>
+      <nav aria-label="Primary">
+        <a class="active" href="lessons.html">Lessons</a>
+        <a href="playground.html">Playground</a>
+        <a href="quiz.html">Quiz</a>
+        <a class="btn small" href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <h1>Lessons</h1>
+
+    <section id="html" class="section">
+      <h2>HTML — Structure</h2>
+      <p  style="font-weight:bold;"
+  ><strong>Element</strong> = <code>&lt;start-tag&gt;</code> content <code>&lt;/end-tag&gt;</code>. Elements can be <em>nested</em>.</p>
+      <details open>
+        <summary  style="font-weight:bold;">Page Skeleton</summary>
+        <pre class="code"><button class="copy" data-clip="#code-skeleton">Copy</button><code id="code-skeleton">&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+  &lt;head&gt;
+    &lt;meta charset="utf-8"&gt;
+    &lt;title&gt;My First Page&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;My First Heading&lt;/h1&gt;
+    &lt;p&gt;My first paragraph.&lt;/p&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+    
+     
+  </code></pre>
+      </details>
+
+      <details>
+        <summary  style="font-weight:bold;">Links, Images & Bookmarks</summary>
+        <pre class="code"><button class="copy" data-clip="#code-links">Copy</button><code id="code-links">&lt;h2 id="chapter4"&gt;Chapter 4&lt;/h2&gt;
+&lt;a href="#chapter4"&gt;Jump to Chapter 4&lt;/a&gt;
+
+&lt;a href="mailto:hello@example.com"&gt;Send Email&lt;/a&gt;
+&lt;a href="page2.html"&gt;Relative link&lt;/a&gt;
+&lt;a href="https://www.w3.org/" target="_blank"&gt;Absolute link&lt;/a&gt;
+&lt;a href="/assets/guide.pdf" download&gt;Download PDF&lt;/a&gt;
+&lt;a href="/"&gt;&lt;img src="logo.png" alt="Brand logo" width="120" height="32"&gt;&lt;/a&gt;</code></pre>
+      </details>
+
+      <details>
+       <summary style="font-weight:bold;">Colors: Names, RGB/HEX/HSL</summary>
+        <pre class="code"><button class="copy" data-clip="#code-colors">Copy</button><code id="code-colors">&lt;p style="background-color:Tomato; color:white"&gt;Color name&lt;/p&gt;
+&lt;p style="background: rgb(255,99,71)"&gt;RGB&lt;/p&gt;
+&lt;p style="background: #ff6347"&gt;HEX&lt;/p&gt;
+&lt;p style="background: hsl(9,100%,64%)"&gt;HSL&lt;/p&gt;
+&lt;p style="background: rgba(255,99,71,.5)"&gt;RGBA (alpha)&lt;/p&gt;
+&lt;p style="background: hsla(9,100%,64%,.5)"&gt;HSLA (alpha)&lt;/p&gt;</code></pre>
+      </details>
+    </section>
+
+    <section id="css" class="section">
+      <h2>CSS — Style</h2>
+      <p style="font-weight:bold;">Use inline, internal, or external styles. Prefer external <code>.css</code> for real projects.</p>
+      <div class="grid">
+        <pre class="code"><button class="copy" data-clip="#code-inline">Copy</button><code id="code-inline">&lt;h1 style="color:blue"&gt;A Blue Heading&lt;/h1&gt;
+&lt;p style="color:red"&gt;A red paragraph.&lt;/p&gt;</code></pre>
+        <pre class="code"><button class="copy" data-clip="#code-internal">Copy</button><code id="code-internal">&lt;style&gt;
+  body{ background: powderblue }
+  h1{ color: blue }
+  p{ color: red }
+&lt;/style&gt;</code></pre>
+        <pre class="code"><button class="copy" data-clip="#code-external">Copy</button><code id="code-external">&lt;link rel="stylesheet" href="styles.css"&gt;
+/* styles.css */
+body{ background: powderblue }
+h1{ color: blue }
+p{ color: red }</code></pre>
+      </div>
+
+      <details>
+        <summary style="font-weight:bold;">Box Model</summary>
+        <pre class="code"><button class="copy" data-clip="#code-box">Copy</button><code id="code-box">p{
+  border: 2px solid powderblue; /* line around the element */
+  padding: 30px;                /* space between border and content */
+  margin: 50px;                 /* space outside the border */
+}</code></pre>
+      </details>
+    </section>
+
+    <section id="js" class="section">
+      <h2>JavaScript — Behavior</h2>
+      <div class="grid">
+        <pre class="code"><button class="copy" data-clip="#code-output">Copy</button><code id="code-output">// Output methods
+console.log("Hello, Console!");
+alert("Welcome!");
+document.write("Hello, world!");
+document.getElementById("demo").innerHTML = "New text!";</code></pre>
+        <pre class="code"><button class="copy" data-clip="#code-scope">Copy</button><code id="code-scope">// Scope
+function f(){
+  var inside = "function-scoped"; // only inside f
+}
+if(true){
+  let block = "block-scoped"; // only inside this block
+  const PI = 3.14159;         // constant
+}</code></pre>
+        <pre class="code"><button class="copy" data-clip="#code-types">Copy</button><code id="code-types">// Types
+typeof "Hello";   // string
+typeof 25;        // number
+typeof true;      // boolean
+null;             // null
+undefined;        // undefined
+Symbol("u");      // symbol
+({a:1});          // object
+[1,2,3];          // array
+(function(){})    // function</code></pre>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p><a class="btn" href="index.html"> Back to Home</a></p>
+    </div>
+  </footer>
+</body>
+</html>

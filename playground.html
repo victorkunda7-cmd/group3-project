@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Playground • Web Class</title>
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="script.js"></script>
+</head>
+<body class="playgound-page">
+  <header class="site-header">
+    <div class="wrap nav">
+      <a class="brand" href="index.html">
+        <img src="logo.svg" alt="" width="36" height="36" class="logo">
+        <span class="brand-text">Web Class</span>
+      </a>
+      <nav aria-label="Primary">
+        <a href="lessons.html">Lessons</a>
+        <a class="active" href="playground.html">Playground</a>
+        <a href="quiz.html">Quiz</a>
+        <a class="btn small" href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <h1>Try‑It Playground</h1>
+    <p style="font-weight:bold;"
+    font-size="10px">Type HTML, CSS and JS below. Press <kbd>Ctrl/Cmd + Enter</kbd> or click <b>Run</b>.</p>
+    <div class="try grid-1">
+      <textarea id="editor" aria-label="Playground editor">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;meta charset="utf-8"&gt;
+  &lt;style&gt;body{font-family:sans-serif} .box{padding:12px;border:2px solid #333}&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;h1&gt;Hello, Web!&lt;/h1&gt;
+  &lt;p&gt;Edit this sample — it includes HTML, CSS, and JS.&lt;/p&gt;
+  &lt;div class="box" id="b"&gt;Click me&lt;/div&gt;
+  &lt;script&gt;document.getElementById('b').onclick=()=>alert('Box clicked!')&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</textarea>
+      <div class="btn-row">
+        <button id="run" class="btn">Run ▶</button>
+        <button id="reset" class="btn">Reset ↺</button>
+        <span id="status" class="btn">Ready</span>
+      </div>
+      <iframe id="out" class="try-frame" title="Output"></iframe>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p><a class="btn" href="index.html"> Back to Home</a></p>
+    </div>
+  </footer>
+
+  <script>
+    const editor = document.getElementById('editor');
+    const out = document.getElementById('out');
+    const status = document.getElementById('status');
+    const defaultCode = editor.value;
+
+    function run(){
+      const blob = new Blob([editor.value], {type:'text/html'});
+      out.src = URL.createObjectURL(blob);
+      status.textContent='Running…';
+      setTimeout(()=>status.textContent='Done',400);
+    }
+    document.getElementById('run').onclick = run;
+    document.getElementById('reset').onclick = ()=>{ editor.value = defaultCode; run(); };
+    editor.addEventListener('keydown', e=>{ if((e.metaKey||e.ctrlKey) && e.key==='Enter'){ run(); } });
+    run();
+  </script>
+</body>
+</html>

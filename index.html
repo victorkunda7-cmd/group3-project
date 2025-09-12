@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Web Class • HTML, CSS & JavaScript</title>
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="script.js"></script>
+</head>
+<body class="home-page">
+  <video autoplay muted loop id="myVideo" >
+  <source src="v1.mp4" type="video/mp4">
+
+</video>
+
+  <header class="site-header">
+    <div class="wrap nav">
+      <a class="brand" href="index.html" aria-label="Home">
+        <img src="logo.svg" alt="" width="36" height="36" class="logo">
+        <span class="brand-text">Web Class</span>
+      </a>
+      <nav aria-label="Primary">
+        <a href="lessons.html">Lessons</a>
+        <a href="playground.html">Playground</a>
+        <a href="quiz.html">Quiz</a>
+        <a class="btn small" href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="hero">
+      <h1>Learn <span class="grad">HTML</span>, <span class="grad-2">CSS</span> & <span class="grad-3">JavaScript</span></h1>
+      <p class="tag">A beautiful, interactive website for teaching the web’s core trio — structure, style, and behavior.</p>
+      <div class="cta-row">
+        <a class="btn" href="lessons.html">Start Lessons</a>
+        <a class="btn" href="playground.html">Try It Live</a>
+      </div>
+    </section>
+
+    <section class="cards grid" role="list">
+      <article class="card" role="listitem">
+        <h3>HTML • Structure</h3>
+        <p>Elements, attributes, links, images, and semantic tags. Build robust page structure.</p>
+        <a class="text-link" href="lessons.html#html">Explore HTML →</a>
+      </article>
+      <article class="card" role="listitem">
+        <h3>CSS • Style</h3>
+        <p>Selectors, the box model, Flexbox & Grid, typography, colors, and responsive design.</p>
+        <a class="text-link" href="lessons.html#css">Explore CSS →</a>
+      </article>
+      <article class="card" role="listitem">
+        <h3>JavaScript • Behavior</h3>
+        <p>Variables, types, DOM, events, and small apps to make pages dynamic and fun.</p>
+        <a class="text-link" href="lessons.html#js">Explore JS →</a>
+      </article>
+    </section>
+
+    <section class="showcase two">
+      <div>
+        <h2 class="twoline">Interactive <span class="grad">Playground</span></h2>
+        <p style="text color: rgba(222, 32, 46, 0.89)" >Practice by editing HTML, CSS & JS in one place and seeing results instantly. Perfect for demos and class exercises.</p>
+        <a class="btn" href="playground.html">Open Playground ▶</a>
+      </div>
+      <div class="demo-card">
+        <iframe src="preview.html" title="Preview" class="mock"></iframe>
+      </div>
+    </section>
+
+    <section class="footer-note">
+      <p>Built with ❤️ for students and teachers. No database needed. Forms include <b>client‑side validation</b>.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>© <span id="year"></span> Web Class. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>
